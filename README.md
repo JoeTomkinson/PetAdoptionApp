@@ -1,9 +1,9 @@
 # PetAdoptionApp
 PetAdoptionApp based on a dribble by Andika Wiraputra for the Microsoft .NET MAUI Beautiful UI Challenge
 <br/><br/>
-[Pet Adoption App](https://dribbble.com/shots/14930598-Pet-Adoption-App) Dribble by Andika Wiraputra
+[Pet Adoption App](https://dribbble.com/shots/15845064-Pet-Adoption-App) Dribble by Arinasdd
 <br/><br/>
-![image](https://user-images.githubusercontent.com/17493722/184621921-63636a3e-e773-406c-86b2-cc4799139638.png)
+![image](https://user-images.githubusercontent.com/17493722/184824853-64aa491a-a2a4-4f45-9564-8da7702c2e9c.png)
 
 This application was built for the [Microsoft .NET MAUI Beautiful UI Challenge](https://devblogs.microsoft.com/dotnet/announcing-dotnet-maui-beautiful-ui-challenge/)
 <br/><br/>
