@@ -49,12 +49,17 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
+	  <PackageReference Include="GoogleApi" Version="4.2.3" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="PetsMain.xaml">
+	  <MauiXaml Update="Views\PetsMain.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
 	</ItemGroup>
 
 </Project>
