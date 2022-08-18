@@ -1,41 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PetAdoptionApp.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid BackgroundColor="#f6f4f0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Grid Margin="0,32,0,0" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+                Grid.Row="0"
+            Source="starter_image.png"
+            SemanticProperties.Description="Cute cat being held by their owner"
+            HeightRequest="300"
+            HorizontalOptions="Center" />
+        </Grid>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+        <Ellipse HeightRequest="900" WidthRequest="700" Margin="0,0,0,-450" Fill="white" Grid.Row="1" HorizontalOptions="FillAndExpand" />
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+        <HorizontalStackLayout Grid.Row="1" VerticalOptions="Start" TranslationY="40" HorizontalOptions="Center" >
+            <Ellipse HeightRequest="10" Margin="2" WidthRequest="10" Fill="orange"/>
+            <Ellipse HeightRequest="10" Margin="2" WidthRequest="10" Fill="{StaticResource Tertiary}"/>
+            <Ellipse HeightRequest="10" Margin="2" WidthRequest="10" Fill="{StaticResource Tertiary}"/>
+        </HorizontalStackLayout>
+        <Ellipse/>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+        <Grid Margin="0,110,0,0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        </VerticalStackLayout>
-    </ScrollView>
+            <VerticalStackLayout Background="White" Grid.Row="0">
+                <Label HorizontalOptions="Center" Margin="0,16,0,0" FontFamily="PoetsenOne" FontSize="26" Grid.Row="1" Text="Adopt a Friend" />
+                <Label HorizontalOptions="Center" Margin="0,8,0,0" FontFamily="RobotoRegular" FontSize="Default" TextColor="{StaticResource FontSecondary}" Text="Adopt the cutest pet as" />
+                <Label HorizontalOptions="Center" Margin="0" FontFamily="RobotoRegular" FontSize="Default" TextColor="{StaticResource FontSecondary}" Text="your playmate" />
+            </VerticalStackLayout>
 
+            <Button Grid.Row="1"
+                x:Name="GetStartedBtn"
+                Text="Get Started"
+                FontSize="26"
+                Margin="32,16,32,16"
+                HeightRequest="70"
+                CornerRadius="20"
+                VerticalOptions="End"
+                FontFamily="PoetsenOne"
+                SemanticProperties.Hint="Loads into the app"
+                HorizontalOptions="FillAndExpand" >
+                <Button.Shadow>
+                    <Shadow Brush="Gray"
+                    Offset="00,20"
+                    Radius="20"
+                    Opacity="0.7" />
+                </Button.Shadow>
+            </Button>
+
+        </Grid>
+    </Grid>
 </ContentPage>
