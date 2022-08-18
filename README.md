@@ -1,5 +1,5 @@
 # PetAdoptionApp
-PetAdoptionApp based on a dribble by Andika Wiraputra for the Microsoft .NET MAUI Beautiful UI Challenge
+PetAdoptionApp based on / inspired by a dribble by Andika Wiraputra for the Microsoft .NET MAUI Beautiful UI Challenge
 <br/><br/>
 [Pet Adoption App](https://dribbble.com/shots/15845064-Pet-Adoption-App) Dribble by Arinasdd
 <br/><br/>
