@@ -14,6 +14,6 @@
 
     <ShellContent
         Title="Pets"
-        ContentTemplate="{DataTemplate local:PetsMain}"
+        ContentTemplate="{DataTemplate local:PetsMainPage}"
         Route="PetsPage" />
 </Shell>

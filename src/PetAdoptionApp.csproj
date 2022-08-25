@@ -53,13 +53,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\PetsMain.xaml">
+	  <MauiXaml Update="Controls\SpacingModifier.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\" />
+	  <MauiXaml Update="Views\PetDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

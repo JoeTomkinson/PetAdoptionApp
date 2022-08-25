@@ -2,10 +2,12 @@
 
 public partial class App : Application
 {
+    public static ResourceDictionary ColourDictionary { get; private set; }
+
 	public App(AppShell appShell)
 	{
 		InitializeComponent();
-
+        ColourDictionary = Application.Current.Resources.MergedDictionaries.Where(md => md.Source.OriginalString == "Resources/Styles/Colors.xaml;assembly=PetAdoptionApp").FirstOrDefault();
         MainPage = appShell;
     }
 

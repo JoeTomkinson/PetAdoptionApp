@@ -4,7 +4,7 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PetAdoptionApp.MainPage">
 
-    <Grid BackgroundColor="#f6f4f0" >
+    <Grid BackgroundColor="{StaticResource Secondary}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -47,8 +47,9 @@
                 x:Name="GetStartedBtn"
                 Text="Get Started"
                 FontSize="26"
-                Margin="32,16,32,16"
+                Margin="32,16,32,32"
                 HeightRequest="70"
+                Command="{x:Binding Path=NavigateCommand}"
                 CornerRadius="20"
                 VerticalOptions="End"
                 FontFamily="PoetsenOne"

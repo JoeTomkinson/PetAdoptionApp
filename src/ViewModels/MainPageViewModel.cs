@@ -1,26 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PetAdoptionApp.Contracts.Services;
+using PetAdoptionApp.ViewModels.Base;
 
 namespace PetAdoptionApp.ViewModels
 {
-    internal class MainPageViewModel : INotifyPropertyChanged
+    public class MainPageViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        readonly INavigationService _navigationService;
 
-        public MainPageViewModel()
+        public Command NavigateCommand => new(async () => await _navigationService.NavigateToPage<PetsMainPage>());
+
+        public MainPageViewModel(INavigationService navigationService)
         {
-
-        }
-
-
-        public void OnPropertyChanged([CallerMemberName] string name = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            _navigationService = navigationService;
         }
     }
 }

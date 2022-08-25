@@ -1,6 +1,9 @@
 ﻿using AndroidX.Lifecycle;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.DependencyInjection;
+using PetAdoptionApp.Contracts.Abstracts;
+using PetAdoptionApp.Contracts.Services;
+using PetAdoptionApp.Services;
 using PetAdoptionApp.ViewModels;
 
 namespace PetAdoptionApp;
@@ -36,7 +39,11 @@ public static class MauiProgram
 	{
         builder.Services.AddSingleton<AppShell>();
         builder.Services.AddSingleton<MainPage>();
-        builder.Services.AddTransient<MainPageViewModel>();
+        builder.Services.AddTransient<MainPageViewModel>(); 
+		builder.Services.AddSingleton<PetsMainPage>();
+        builder.Services.AddTransient<PetsMainViewModel>();
+        builder.Services.AddTransient<INavigationService, NavigationService>();
+        builder.Services.AddTransient<BasePetService, PetService>();
         return builder;
     }
 }
