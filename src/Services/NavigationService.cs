@@ -104,7 +104,6 @@ namespace PetAdoptionApp.Services
         private ViewModelBase GetPageViewModelBase(Page p)
             => p?.BindingContext as ViewModelBase;
 
-        private T? ResolvePage<T>() where T : Page
-            => _services.GetService<T>();
+        private T? ResolvePage<T>() where T : Page => _services.GetService<T>();
     }
 }
