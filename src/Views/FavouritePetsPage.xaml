@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetAdoptionApp.Views.FavouritePetsPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="cvFavouritePets"
+             Title="FavouritePetsPage">
+    <Grid BackgroundColor="{StaticResource Tertiary}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <CarouselView Grid.Row="0" x:Name="cvPets"  Loop="False" ItemsSource="{Binding Path=FavouritePets}" PeekAreaInsets="400" Margin="0,0,0,0">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Frame
+                            HeightRequest="270"
+                            BorderColor="Transparent"
+                            BackgroundColor="{Binding Path=Colour}"
+                            CornerRadius="0"
+                            Margin="0,0,0,0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{x:Reference cvPets}" Command="{Binding BindingContext.PetSelected, Source={x:Reference cvFavouritePets}}" />
+                            </Frame.GestureRecognizers>
+                            <Frame.Shadow>
+                                <Shadow Offset="0,20" Radius="30" Opacity="0.5" />
+                            </Frame.Shadow>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Source="{Binding PetImageSource}" Aspect="AspectFit" HeightRequest="200" WidthRequest="200" VerticalOptions="Center" HorizontalOptions="Center" >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{x:Reference cvPets}" Command="{Binding BindingContext.PetSelected, Source={x:Reference cvFavouritePets}}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Grid.Row="1" Text="{Binding PetName}" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{x:Reference cvPets}" Command="{Binding BindingContext.PetSelected, Source={x:Reference cvFavouritePets}}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Frame>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+            <CarouselView.EmptyView>
+                <Frame Margin="6,0,6,0" CornerRadius="15" BackgroundColor="{StaticResource Primary}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontFamily="PoetsenOne" TextColor="White" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="22" Text="No Pets Loved Yet" />
+                        <Image Grid.Row="1" Margin="0,32,0,0" Source="down_arrow" WidthRequest="35" HeightRequest="35" VerticalOptions="Start" >
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="White" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Image Grid.Row="2" Source="sad_pet" WidthRequest="100" HeightRequest="100" VerticalOptions="End" />
+                    </Grid>
+                </Frame>
+            </CarouselView.EmptyView>
+        </CarouselView>
+
+        <!--Custom Nav-->
+        <Rectangle BackgroundColor="Transparent" Grid.Row="1" HeightRequest="2" VerticalOptions="Start">
+            <Rectangle.Shadow>
+                <Shadow Offset="0,20" Radius="5" Opacity="1" />
+            </Rectangle.Shadow>
+        </Rectangle>
+        <Frame  Grid.Row="1" VerticalOptions="End" CornerRadius="35" Margin="32" BackgroundColor="{StaticResource Primary}" HeightRequest="100">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.Shadow>
+                    <Shadow Offset="10,10" Radius="30" Opacity="0.5" />
+                </Grid.Shadow>
+                <ImageButton IsEnabled="True" Grid.Column="0" HeightRequest="50" WidthRequest="50" Command="{Binding NavigateBack}" Source="main_icon" />
+                <ImageButton IsEnabled="True" Grid.Column="1" HeightRequest="35" WidthRequest="35" Command="{Binding NavigateToFavouritesPage}" Source="fav_icon" />
+                <ImageButton IsEnabled="True" Grid.Column="2" HeightRequest="50" WidthRequest="40" Source="profile_icon" />
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

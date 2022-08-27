@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Android.Content.Res;
-using PetAdoptionApp.Contracts.Abstracts;
+﻿using PetAdoptionApp.Contracts.Abstracts;
 using PetAdoptionApp.Contracts.Services;
-using PetAdoptionApp.Helpers;
 using PetAdoptionApp.Models;
 using PetAdoptionApp.Static;
 using PetAdoptionApp.ViewModels.Base;
+using PetAdoptionApp.Views;
 
 namespace PetAdoptionApp.ViewModels
 {
@@ -28,11 +20,13 @@ namespace PetAdoptionApp.ViewModels
 
         public Command NavigateToSearchPage => new(async () => await _navigationService.NavigateToPage<PetsMainPage>());
 
+        public Command NavigateToFavouritesPage => new(async () => await _navigationService.NavigateToPage<FavouritePetsPage>());
+
         public Command NavigateToPetDetailsPage => new(async () => await _navigationService.NavigateToPage<PetsMainPage>());
 
         public Command NavigateToProfilePage => new(async () => await _navigationService.NavigateToPage<PetsMainPage>());
 
-        public Command PetSelected => new((s) => OnPetSelected(s));
+        public Command PetSelected => new(async (s) => await OnPetSelected(s));
 
         public Command SetPetType => new((s) =>
         {
@@ -140,12 +134,15 @@ namespace PetAdoptionApp.ViewModels
             RaisePropertyChanged(nameof(ButtonRabbitColour));
             RaisePropertyChanged(nameof(ButtonAlpacaColour));
         }
-    
-        private void OnPetSelected(object s)
-        {
-            if(s is CarouselView cv)
-            {
 
+        private async Task OnPetSelected(object s)
+        {
+            if (s is CarouselView cv)
+            {
+                if (cv.CurrentItem is Pet pet)
+                {
+                    await _navigationService.NavigateToPage<PetDetailsPage>(pet);
+                }
             }
         }
     }

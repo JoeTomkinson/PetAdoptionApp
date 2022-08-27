@@ -1,9 +1,14 @@
+using PetAdoptionApp.ViewModels;
+
 namespace PetAdoptionApp.Views;
 
 public partial class PetDetailsPage : ContentPage
 {
-	public PetDetailsPage()
+    readonly PetDetailsViewModel ViewModel;
+
+    public PetDetailsPage(PetDetailsViewModel viewModel)
 	{
 		InitializeComponent();
-	}
+        BindingContext = ViewModel = viewModel;
+    }
 }

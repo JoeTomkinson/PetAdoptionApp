@@ -42,7 +42,7 @@
             </HorizontalStackLayout>
         </Border>
         <!--Pet Type Selection-->
-        <Label LineBreakMode="WordWrap" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="32,32,0,0" FontSize="16" Text="Adopt">
+        <Label LineBreakMode="WordWrap" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" HeightRequest="40" VerticalOptions="CenterAndExpand" Margin="32,32,0,0" FontSize="16" Text="Adopt">
             <Label.FormattedText>
                 <FormattedString>
                     <Span FontFamily="PoetsenOne" Text="Choose"/>
@@ -52,23 +52,23 @@
             </Label.FormattedText>
         </Label>
         <ScrollView Margin="0,32,0,0"  Grid.Row="1" Grid.Column="1" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
-            <HorizontalStackLayout Padding="8,8,8,16" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Spacing="10" x:Name="PetTypes">
-                <Button x:Name="btnDog" Text="Dog" CornerRadius="10" FontSize="14" WidthRequest="85" BackgroundColor="{Binding Path=ButtonDogColour}" CommandParameter="{x:Reference btnDog}" Command="{Binding Path=SetPetType}" >
+            <HorizontalStackLayout Padding="8,8,8,16" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Spacing="13" x:Name="PetTypes">
+                <Button x:Name="btnDog" Text="Dog" HeightRequest="40" CornerRadius="12" FontSize="14" WidthRequest="75" BackgroundColor="{Binding Path=ButtonDogColour}" CommandParameter="{x:Reference btnDog}" Command="{Binding Path=SetPetType}" >
                     <Button.Shadow>
                         <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
                     </Button.Shadow>
                 </Button>
-                <Button x:Name="btnCat" Text="Cat" CornerRadius="10" FontSize="14" WidthRequest="85" BackgroundColor="{Binding Path=ButtonCatColour}" CommandParameter="{x:Reference btnCat}" Command="{Binding Path=SetPetType}"  >
+                <Button x:Name="btnCat" Text="Cat" CornerRadius="12" FontSize="14" WidthRequest="75" BackgroundColor="{Binding Path=ButtonCatColour}" CommandParameter="{x:Reference btnCat}" Command="{Binding Path=SetPetType}"  >
                     <Button.Shadow>
                         <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
                     </Button.Shadow>
                 </Button>
-                <Button x:Name="btnRabbit" Text="Rabbit" CornerRadius="10" FontSize="14" WidthRequest="85" BackgroundColor="{Binding Path=ButtonRabbitColour}" CommandParameter="{x:Reference btnRabbit}" Command="{Binding Path=SetPetType}"  >
+                <Button x:Name="btnRabbit" Text="Rabbit" CornerRadius="12" FontSize="14" WidthRequest="75" BackgroundColor="{Binding Path=ButtonRabbitColour}" CommandParameter="{x:Reference btnRabbit}" Command="{Binding Path=SetPetType}"  >
                     <Button.Shadow>
                         <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
                     </Button.Shadow>
                 </Button>
-                <Button x:Name="btnAlpaca" Text="Alpaca" CornerRadius="10" FontSize="14" WidthRequest="85" BackgroundColor="{Binding Path=ButtonAlpacaColour}" CommandParameter="{x:Reference btnAlpaca}" Command="{Binding Path=SetPetType}"  >
+                <Button x:Name="btnAlpaca" Text="Alpaca" CornerRadius="12" FontSize="14" WidthRequest="75" BackgroundColor="{Binding Path=ButtonAlpacaColour}" CommandParameter="{x:Reference btnAlpaca}" Command="{Binding Path=SetPetType}"  >
                     <Button.Shadow>
                         <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
                     </Button.Shadow>
@@ -76,19 +76,19 @@
             </HorizontalStackLayout>
         </ScrollView>
         <!--Pets View-->
-        <CarouselView x:Name="cvPets" VerticalOptions="Start" Loop="False" ItemsSource="{Binding Path=FilteredPets}" PeekAreaInsets="200" Margin="0,20,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+        <CarouselView x:Name="cvPets" VerticalOptions="Start" ItemsSource="{Binding Path=FilteredPets}" PeekAreaInsets="200" Margin="0,20,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             <CarouselView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal" />
             </CarouselView.ItemsLayout>
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Spacing="10">
+                    <VerticalStackLayout>
                         <Frame
                                 BorderColor="Transparent"
                        BackgroundColor="{Binding Path=ColorHex, Converter={StaticResource hexToColor}}"
                        CornerRadius="30"
                        Margin="10,10,10,0"
-                                WidthRequest="200"
+                                WidthRequest="220"
                                 HeightRequest="300"
                        HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand">
@@ -98,22 +98,11 @@
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{x:Reference cvPets}" Command="{Binding BindingContext.PetSelected, Source={x:Reference cvPets}}" />
                             </Frame.GestureRecognizers>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="45"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <Image WidthRequest="45" HorizontalOptions="EndAndExpand" Margin="4" Grid.Row="0" Source="tap_icon" >
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{x:Reference cvPets}" Command="{Binding BindingContext.PetSelected, Source={x:Reference cvPets}}" />
-                                    </Image.GestureRecognizers>
-                                </Image>
-                                <Image Grid.Row="1" Source="{Binding PetImageSource}" Aspect="AspectFit" HeightRequest="200" WidthRequest="200" VerticalOptions="Center" HorizontalOptions="Center" >
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{x:Reference cvPets}" Command="{Binding BindingContext.PetSelected, Source={x:Reference cvPets}}" />
-                                    </Image.GestureRecognizers>
-                                </Image>
-                            </Grid>
+                            <Image Source="{Binding PetImageSource}" Aspect="AspectFit" HeightRequest="200" WidthRequest="200" VerticalOptions="Center" HorizontalOptions="Center" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{x:Reference cvPets}" Command="{Binding BindingContext.PetSelected, Source={x:Reference cvPets}}" />
+                                </Image.GestureRecognizers>
+                            </Image>
                         </Frame>
                         <Label Text="{Binding PetName}" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" >
                             <Label.GestureRecognizers>
@@ -144,8 +133,11 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <Grid.Shadow>
+                    <Shadow Offset="10,10" Radius="30" Opacity="0.5" />
+                </Grid.Shadow>
                 <ImageButton Grid.Column="0" HeightRequest="50" WidthRequest="50" Source="main_icon" />
-                <ImageButton Grid.Column="1" HeightRequest="35" WidthRequest="35" Source="fav_icon" />
+                <ImageButton Grid.Column="1" HeightRequest="35" WidthRequest="35" Command="{Binding NavigateToFavouritesPage}" Source="fav_icon" />
                 <ImageButton Grid.Column="2" HeightRequest="50" WidthRequest="40" Source="profile_icon" />
             </Grid>
         </Frame>

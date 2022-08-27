@@ -1,7 +1,4 @@
-﻿using Android.OS;
-using Android.Views;
-
-namespace PetAdoptionApp;
+﻿namespace PetAdoptionApp;
 
 public partial class AppShell : Shell
 {

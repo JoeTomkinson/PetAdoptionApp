@@ -1,11 +1,4 @@
-using Android.Graphics.Fonts;
 using PetAdoptionApp.ViewModels;
-using static Android.Print.PrintAttributes;
-using static Android.Provider.MediaStore.Audio;
-using static Java.Util.Jar.Attributes;
-using static System.Net.Mime.MediaTypeNames;
-using Xamarin.Google.Crypto.Tink.Prf;
-using PetAdoptionApp.Helpers;
 
 namespace PetAdoptionApp;
 

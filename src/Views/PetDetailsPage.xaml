@@ -2,11 +2,78 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PetAdoptionApp.Views.PetDetailsPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="PetDetailsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <Grid BackgroundColor="{Binding Pet.Colour}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid WidthRequest="300" HeightRequest="300" Margin="0,32,0,0" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HeightRequest="37">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Source="location_marker" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding LocationTapped}" />
+                        </Image.GestureRecognizers>
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Black" />
+                        </Image.Behaviors>
+                    </Image>
+                    <ImageButton Command="{Binding LoveTapped}" Grid.Column="1" HeightRequest="35" WidthRequest="35" HorizontalOptions="End" Source="{Binding LovedIcon}" />
+                </Grid>
+                <Image Grid.Row="1" Source="{Binding Pet.PetImageSource}" WidthRequest="150" HeightRequest="150" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label HorizontalOptions="Center" FontAttributes="Bold" Grid.Row="2" FontSize="32" Text="{Binding Pet.PetName}" />
+            </Grid>
+
+            <Ellipse HeightRequest="900" WidthRequest="700" Margin="0,0,0,-450" Fill="white" Grid.Row="1" HorizontalOptions="FillAndExpand" />
+
+            <HorizontalStackLayout Grid.Row="1" VerticalOptions="Start" TranslationY="40" HorizontalOptions="Center" >
+                <Label HorizontalOptions="Center" Margin="0,16,0,0" FontFamily="PoetsenOne" FontSize="26" Grid.Row="1" Text="About Me" />
+            </HorizontalStackLayout>
+            <Ellipse/>
+
+            <Grid Margin="0,110,0,0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <VerticalStackLayout Background="White" Grid.Row="0">
+                    <Label Margin="32" HorizontalOptions="Center" FontFamily="RobotoRegular" FontSize="Default" TextColor="{StaticResource FontSecondary}" Text="{Binding Pet.PetDescription}" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <!--Back Nav-->
+            <Button Grid.Row="2"
+                x:Name="BackBtn"
+                Text="Close"
+                FontSize="22"
+                Margin="32,16,32,32"
+                HeightRequest="70"
+                Command="{x:Binding Path=CloseCommand}"
+                CornerRadius="20"
+                VerticalOptions="End"
+                FontFamily="PoetsenOne"
+                SemanticProperties.Hint="Closes the pets detail page"
+                HorizontalOptions="FillAndExpand" >
+                <Button.Shadow>
+                    <Shadow Brush="Gray"
+                    Offset="00,20"
+                    Radius="20"
+                    Opacity="0.7" />
+                </Button.Shadow>
+            </Button>
+        </Grid>
+    </ScrollView>
 </ContentPage>

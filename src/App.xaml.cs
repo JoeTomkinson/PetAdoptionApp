@@ -1,4 +1,6 @@
-﻿namespace PetAdoptionApp;
+﻿using Newtonsoft.Json;
+
+namespace PetAdoptionApp;
 
 public partial class App : Application
 {
