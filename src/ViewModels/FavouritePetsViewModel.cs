@@ -13,6 +13,8 @@ namespace PetAdoptionApp.ViewModels
 
         public Command NavigateBack => new(async () => await _navigationService.NavigateBack());
 
+        public Command NavigateToProfilePage => new(async () => await _navigationService.NavigateToPage<MaintenancePage>());
+
         public Command PetSelected => new(async (s) => await OnPetSelected(s));
 
         public List<Pet> FavouritePets { get; set; }

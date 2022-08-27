@@ -87,9 +87,16 @@
                 <Grid.Shadow>
                     <Shadow Offset="10,10" Radius="30" Opacity="0.5" />
                 </Grid.Shadow>
-                <ImageButton IsEnabled="True" Grid.Column="0" HeightRequest="50" WidthRequest="50" Command="{Binding NavigateBack}" Source="main_icon" />
+                <Image Grid.Column="0" Source="back_icon" WidthRequest="35" HeightRequest="35">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding NavigateBack}" />
+                    </Image.GestureRecognizers>
+                </Image>
                 <ImageButton IsEnabled="True" Grid.Column="1" HeightRequest="35" WidthRequest="35" Command="{Binding NavigateToFavouritesPage}" Source="fav_icon" />
-                <ImageButton IsEnabled="True" Grid.Column="2" HeightRequest="50" WidthRequest="40" Source="profile_icon" />
+                <ImageButton IsEnabled="True" Grid.Column="2" HeightRequest="50" WidthRequest="40"  Command="{Binding NavigateToProfilePage}" Source="profile_icon" />
             </Grid>
         </Frame>
     </Grid>

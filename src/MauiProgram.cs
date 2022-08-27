@@ -48,6 +48,8 @@ public static class MauiProgram
         builder.Services.AddTransient<FavouritePetsViewModel>();
         builder.Services.AddSingleton<PetsLocationPage>();
         builder.Services.AddTransient<PetsLocationViewModel>();
+        builder.Services.AddSingleton<MaintenancePage>();
+        builder.Services.AddTransient<MaintenanceViewModel>();
 
         // Services
         builder.Services.AddSingleton<IDialogService, ModalDialogService>();

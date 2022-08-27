@@ -12,7 +12,7 @@ namespace PetAdoptionApp.Services
         {
             get
             {
-                INavigation? navigation = Application.Current?.MainPage?.Navigation;
+                INavigation navigation = Application.Current?.MainPage?.Navigation;
                 if (navigation is not null)
                     return navigation;
                 else

@@ -138,7 +138,7 @@
                 </Grid.Shadow>
                 <ImageButton Grid.Column="0" HeightRequest="50" WidthRequest="50" Source="main_icon" />
                 <ImageButton Grid.Column="1" HeightRequest="35" WidthRequest="35" Command="{Binding NavigateToFavouritesPage}" Source="fav_icon" />
-                <ImageButton Grid.Column="2" HeightRequest="50" WidthRequest="40" Source="profile_icon" />
+                <ImageButton Grid.Column="2" HeightRequest="50" WidthRequest="40" Command="{Binding NavigateToProfilePage}" Source="profile_icon" />
             </Grid>
         </Frame>
     </Grid>

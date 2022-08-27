@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetAdoptionApp.Views.MaintenancePage" 
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="MaintenancePage">
+    <Grid BackgroundColor="{StaticResource Tertiary}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <VerticalStackLayout Grid.Row="0" VerticalOptions="CenterAndExpand">
+            <Image WidthRequest="250" Source="sad_cat" />
+            <Label Grid.Row="0" FontFamily="PoetsenOne" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="22" Text="Under Pawtenance, sorry." />
+        </VerticalStackLayout>
+
+        <Frame Grid.Row="1" VerticalOptions="End" CornerRadius="35" Margin="32" BackgroundColor="{StaticResource Primary}" HeightRequest="100">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.Shadow>
+                    <Shadow Offset="10,10" Radius="30" Opacity="0.5" />
+                </Grid.Shadow>
+                <Image Grid.Column="0" Source="back_icon" WidthRequest="35" HeightRequest="35">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding NavigateBack}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <ImageButton IsEnabled="True" Grid.Column="1" HeightRequest="35" WidthRequest="35" Command="{Binding NavigateToFavourites}" Source="fav_icon" />
+                <ImageButton IsEnabled="True" Grid.Column="2" HeightRequest="50" WidthRequest="40" Command="{Binding NavigateToProfile}" Source="profile_icon" />
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>
