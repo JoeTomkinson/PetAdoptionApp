@@ -20,3 +20,5 @@ Dribble by Arinasdd
 
 - Source code: [https://github.com/JoeTomkinson/PetAdoptionApp](https://github.com/JoeTomkinson/PetAdoptionApp)
 - Author: [Joe Tomkinson](https://joetomkinson.dev)
+- Submitted to Microsofts MAUI Beautiful UI Challenge: [Showcase Repo](https://github.com/jsuarezruiz/dotnet-maui-showcase)
+- Microsoft Blog Post: [MAUI UI Challenge](https://devblogs.microsoft.com/dotnet/announcing-dotnet-maui-beautiful-ui-challenge/)
